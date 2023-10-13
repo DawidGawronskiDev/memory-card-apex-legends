@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
+import Loading from "./components/Loading";
 import Card from "./components/Card";
 
 function App() {
@@ -19,13 +20,14 @@ function App() {
     fetchData();
   }, []);
 
-  return (
+  return data ? (
     <ul className="card-list">
-      {data &&
-        data.characters.map((character) => (
-          <Card key={character.name} character={character} />
-        ))}
+      {data.characters.map((character) => (
+        <Card key={character.name} character={character} />
+      ))}
     </ul>
+  ) : (
+    <Loading />
   );
 }
 
