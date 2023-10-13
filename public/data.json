@@ -1,0 +1,100 @@
+{
+  "characters": [
+    {
+      "name": "Wraith",
+      "image": "characters/Wraith/image.png"
+    },
+    {
+      "name": "Bloodhound",
+      "image": "characters/Bloodhound/image.png"
+    },
+    {
+      "name": "Gibraltar",
+      "image": "characters/Gibraltar/image.png"
+    },
+    {
+      "name": "Lifeline",
+      "image": "characters/Lifeline/image.png"
+    },
+    {
+      "name": "Pathfinder",
+      "image": "characters/Pathfinder/image.png"
+    },
+    {
+      "name": "Bangalore",
+      "image": "characters/Bangalore/image.png"
+    },
+    {
+      "name": "Caustic",
+      "image": "characters/Caustic/image.png"
+    },
+    {
+      "name": "Mirage",
+      "image": "characters/Mirage/image.png"
+    },
+    {
+      "name": "Octane",
+      "image": "characters/Octane/image.png"
+    },
+    {
+      "name": "Wattson",
+      "image": "characters/Wattson/image.png"
+    },
+    {
+      "name": "Crypto",
+      "image": "characters/Crypto/image.png"
+    },
+    {
+      "name": "Revenant",
+      "image": "characters/Revenant/image.png"
+    },
+    {
+      "name": "Loba",
+      "image": "characters/Loba/image.png"
+    },
+    {
+      "name": "Rampart",
+      "image": "characters/Rampart/image.png"
+    },
+    {
+      "name": "Horizon",
+      "image": "characters/Horizon/image.png"
+    },
+    {
+      "name": "Fuse",
+      "image": "characters/Fuse/image.png"
+    },
+    {
+      "name": "Valkyrie",
+      "image": "characters/Valkyrie/image.png"
+    },
+    {
+      "name": "Seer",
+      "image": "characters/Seer/image.png"
+    },
+    {
+      "name": "Ash",
+      "image": "characters/Ash/image.png"
+    },
+    {
+      "name": "Ballistic",
+      "image": "characters/Ballistic/image.png"
+    },
+    {
+      "name": "Catalyst",
+      "image": "characters/Catalyst/image.png"
+    },
+    {
+      "name": "Newsastle",
+      "image": "characters/Newsastle/image.png"
+    },
+    {
+      "name": "Maggie",
+      "image": "characters/Maggie/image.png"
+    },
+    {
+      "name": "Vantage",
+      "image": "characters/Vantage/image.png"
+    }
+  ]
+}
