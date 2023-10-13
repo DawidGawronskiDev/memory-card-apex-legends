@@ -6,11 +6,13 @@ import Card from "./components/Card";
 
 function App() {
   const [data, setData] = useState(null);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await fetch("/data.json").then((resp) => resp.json());
+        setCharacters(getCharacters(data, 5));
         setData(data);
       } catch (err) {
         console.log(err);
@@ -18,11 +20,30 @@ function App() {
     }
 
     fetchData();
+
+    return () => {};
   }, []);
+
+  console.log(characters);
+
+  function getCharacters(data, length) {
+    const charactersArr = [];
+    let allCharacters = data.characters;
+
+    for (let i = 0; i < length; i++) {
+      const randomCharacter = Math.floor(Math.random() * allCharacters.length);
+      charactersArr.push(allCharacters[randomCharacter]);
+      allCharacters = allCharacters.filter(
+        (character) => character.name !== allCharacters[randomCharacter].name
+      );
+    }
+
+    return charactersArr;
+  }
 
   return data ? (
     <ul className="card-list">
-      {data.characters.map((character) => (
+      {characters.map((character) => (
         <Card key={character.name} character={character} />
       ))}
     </ul>
