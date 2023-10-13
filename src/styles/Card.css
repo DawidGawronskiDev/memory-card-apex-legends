@@ -50,3 +50,13 @@
   font-size: 32px;
   text-transform: uppercase;
 }
+
+.card img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+  width: 100px;
+}
