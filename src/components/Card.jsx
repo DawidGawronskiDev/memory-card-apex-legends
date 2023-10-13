@@ -1,23 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-
 import Tilt from "react-parallax-tilt";
 import cardBackground from "/images/card-background.png";
 import Logo from "/images/logo.png";
 
 import "../styles/Card.css";
 
-export default function Card({ character }) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  function handleClick() {
-    setIsFlipped(!isFlipped);
-  }
-
+export default function Card({ character, handleCardClick, areFlipped }) {
   return (
-    <div className="card-wrapper" onClick={handleClick}>
-      <Tilt className="card" flipHorizontally={isFlipped}>
-        {!isFlipped ? <CardFront character={character} /> : <CardBack />}
+    <div className="card-wrapper" onClick={() => handleCardClick(character)}>
+      <Tilt className="card" flipHorizontally={areFlipped}>
+        {areFlipped ? <CardBack /> : <CardFront character={character} />}
       </Tilt>
     </div>
   );
