@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import CardList from "./components/CardList";
 
+import "./styles/VideoBackground.css";
+
 function App() {
   const [data, setData] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -61,17 +63,29 @@ function App() {
   }
 
   return data ? (
-    <ul className="card-list">
-      <CardList
-        characters={characters}
-        handleCardClick={handleCardClick}
-        areFlipped={areFlipped}
-        clickedCard={clickedCard}
-      />
-    </ul>
+    <>
+      <VideoBackground />
+
+      <ul className="card-list">
+        <CardList
+          characters={characters}
+          handleCardClick={handleCardClick}
+          areFlipped={areFlipped}
+          clickedCard={clickedCard}
+        />
+      </ul>
+    </>
   ) : (
     <Loading />
   );
 }
 
 export default App;
+
+function VideoBackground() {
+  return (
+    <video className="video-background" autoPlay loop muted>
+      <source src="/videos/video-background.mp4" type="video/mp4" />
+    </video>
+  );
+}
