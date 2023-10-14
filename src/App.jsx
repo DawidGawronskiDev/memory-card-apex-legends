@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import CardList from "./components/CardList";
 
+import "./styles/App.css";
 import "./styles/VideoBackground.css";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     async function fetchData() {
       try {
         const data = await fetch("/data.json").then((resp) => resp.json());
-        setCharacters(getCharacters(data.characters, 5));
+        setCharacters(getCharacters(data.characters, 10));
         setData(data);
       } catch (err) {
         console.log(err);
@@ -55,7 +56,7 @@ function App() {
       setTimeout(() => {
         setAreFlipped(false);
         setClickedCard(null);
-        setCharacters(getCharacters(characters, 5));
+        setCharacters(getCharacters(characters, 10));
       }, 500);
     } else {
       console.log("You lose!");
