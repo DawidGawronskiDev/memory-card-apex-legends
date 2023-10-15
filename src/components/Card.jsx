@@ -8,7 +8,11 @@ import "../styles/Card.css";
 export default function Card({ character, handleCardClick, areFlipped }) {
   return (
     <div className="card-wrapper" onClick={() => handleCardClick(character)}>
-      <Tilt className="card" flipHorizontally={areFlipped}>
+      <Tilt
+        className="card"
+        flipHorizontally={areFlipped}
+        style={{ transform: "rotateX(0deg) rotateY(0deg)" }}
+      >
         {areFlipped ? <CardBack /> : <CardFront character={character} />}
       </Tilt>
     </div>
