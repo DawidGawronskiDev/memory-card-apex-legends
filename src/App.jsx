@@ -11,7 +11,7 @@ function App() {
   const [data, setData] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [foundCharacters, setFoundCharacters] = useState([]);
-  const [areFlipped, setAreFlipped] = useState(false);
+  const [areFlipped, setAreFlipped] = useState(true);
   const [clickedCard, setClickedCard] = useState(null);
   const [difficulty, setDifficulty] = useState(0);
   const [score, setScore] = useState(1);
@@ -20,7 +20,7 @@ function App() {
     async function fetchData() {
       try {
         const data = await fetch("/data.json").then((resp) => resp.json());
-        setCharacters(getCharacters(data.characters, 10));
+        setCharacters(getCharacters(data.characters, difficulty));
         setData(data);
       } catch (err) {
         console.log(err);
@@ -28,7 +28,7 @@ function App() {
     }
 
     fetchData();
-  }, []);
+  }, [difficulty]);
 
   function getCharacters(data, length) {
     const charactersArr = [];
@@ -45,6 +45,10 @@ function App() {
     return charactersArr;
   }
 
+  function flipCards() {
+    setAreFlipped(!areFlipped);
+  }
+
   function handleCardClick(character) {
     if (foundCharacters.indexOf(character) === -1 && !areFlipped) {
       setFoundCharacters([...foundCharacters, character]);
@@ -58,7 +62,7 @@ function App() {
       setTimeout(() => {
         setAreFlipped(false);
         setClickedCard(null);
-        setCharacters(getCharacters(characters, 10));
+        setCharacters(getCharacters(characters, difficulty));
       }, 500);
     } else {
       console.log("You lose!");
@@ -79,8 +83,6 @@ function App() {
     }
   }
 
-  console.log(difficulty);
-
   return data ? (
     <>
       {difficulty == 0 ? (
@@ -90,6 +92,7 @@ function App() {
           <CardList
             characters={characters}
             handleCardClick={handleCardClick}
+            flipCards={flipCards}
             areFlipped={areFlipped}
             clickedCard={clickedCard}
           />
