@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Loading from "./components/Loading";
+import Difficulity from "./components/Difficulty";
 import CardList from "./components/CardList";
 
 import "./styles/App.css";
@@ -12,6 +13,7 @@ function App() {
   const [foundCharacters, setFoundCharacters] = useState([]);
   const [areFlipped, setAreFlipped] = useState(false);
   const [clickedCard, setClickedCard] = useState(null);
+  const [difficulty, setDifficulty] = useState(0);
   const [score, setScore] = useState(1);
 
   useEffect(() => {
@@ -63,18 +65,37 @@ function App() {
     }
   }
 
+  function changeDifficulty(difficulty) {
+    switch (difficulty) {
+      case "easy":
+        setDifficulty(5);
+        break;
+      case "medium":
+        setDifficulty(10);
+        break;
+      case "hard":
+        setDifficulty(15);
+        break;
+    }
+  }
+
+  console.log(difficulty);
+
   return data ? (
     <>
+      {difficulty == 0 ? (
+        <Difficulity changeDifficulty={changeDifficulty} />
+      ) : (
+        <ul className="card-list">
+          <CardList
+            characters={characters}
+            handleCardClick={handleCardClick}
+            areFlipped={areFlipped}
+            clickedCard={clickedCard}
+          />
+        </ul>
+      )}
       <VideoBackground />
-
-      <ul className="card-list">
-        <CardList
-          characters={characters}
-          handleCardClick={handleCardClick}
-          areFlipped={areFlipped}
-          clickedCard={clickedCard}
-        />
-      </ul>
     </>
   ) : (
     <Loading />
