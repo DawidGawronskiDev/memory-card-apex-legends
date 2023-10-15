@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Loading from "./components/Loading";
 import Difficulity from "./components/Difficulty";
@@ -15,6 +15,16 @@ function App() {
   const [clickedCard, setClickedCard] = useState(null);
   const [difficulty, setDifficulty] = useState(0);
   const [score, setScore] = useState(1);
+
+  const whoooshRef = useRef(null);
+  const killRef = useRef(null);
+  const startRef = useRef(null);
+  const loseRef = useRef(null);
+
+  const playAudio = (ref) => {
+    const audioFile = ref;
+    audioFile.current.play();
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -45,27 +55,28 @@ function App() {
     return charactersArr;
   }
 
-  function flipCards() {
-    setAreFlipped(!areFlipped);
+  function flipCards(value) {
+    setAreFlipped(value);
+    playAudio(whoooshRef);
   }
 
   function handleCardClick(character) {
     if (foundCharacters.indexOf(character) === -1 && !areFlipped) {
       setFoundCharacters([...foundCharacters, character]);
-      setAreFlipped(true);
+      flipCards(true);
       setClickedCard(character);
 
       setScore(score + 1);
-      console.log(score);
+      playAudio(killRef);
 
       // Use setTimeout to flip the card back after 500ms
       setTimeout(() => {
-        setAreFlipped(false);
+        flipCards(false);
         setClickedCard(null);
         setCharacters(getCharacters(characters, difficulty));
       }, 500);
     } else {
-      console.log("You lose!");
+      playAudio(loseRef);
     }
   }
 
@@ -81,6 +92,7 @@ function App() {
         setDifficulty(15);
         break;
     }
+    playAudio(startRef);
   }
 
   return data ? (
@@ -99,6 +111,18 @@ function App() {
         </ul>
       )}
       <VideoBackground />
+      <audio ref={whoooshRef}>
+        <source src="/sounds/whooosh.wav" type="audio/mpeg" />
+      </audio>
+      <audio ref={killRef}>
+        <source src="/sounds/kill.wav" type="audio/mpeg" />
+      </audio>
+      <audio ref={startRef}>
+        <source src="/sounds/start.wav" type="audio/mpeg" />
+      </audio>
+      <audio ref={loseRef}>
+        <source src="/sounds/lose.wav" type="audio/mpeg" />
+      </audio>
     </>
   ) : (
     <Loading />
