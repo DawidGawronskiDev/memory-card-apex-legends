@@ -1,5 +1,6 @@
 .difficulty {
   width: 100%;
+  height: 100vh;
   max-width: 1440px;
 
   display: grid;
@@ -29,6 +30,8 @@
 
 .card-character {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   mix-blend-mode: overlay;
   filter: brightness(50%) saturate(0%);
 }
@@ -65,5 +68,9 @@
     height: 100vh;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
+  }
+
+  .card-character {
+    top: 0;
   }
 }
