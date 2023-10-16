@@ -9,6 +9,14 @@ import Finish from "./components/Finish";
 import "./styles/App.css";
 import "./styles/VideoBackground.css";
 
+import BackgroundVideo from "/videos/video-background.mp4";
+
+import WhoooshSound from "/sounds/whooosh.wav";
+import KillSound from "/sounds/kill.wav";
+import StartSound from "/sounds/start.wav";
+import LoseSound from "/sounds/lose.wav";
+import WinSound from "/sounds/Win.wav";
+
 function App() {
   const [data, setData] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -166,19 +174,19 @@ function App() {
       )}
       <VideoBackground />
       <audio ref={whoooshRef}>
-        <source src="/sounds/whooosh.wav" type="audio/mpeg" />
+        <source src={WhoooshSound} type="audio/mpeg" />
       </audio>
       <audio ref={killRef}>
-        <source src="/sounds/kill.wav" type="audio/mpeg" />
+        <source src={KillSound} type="audio/mpeg" />
       </audio>
       <audio ref={startRef}>
-        <source src="/sounds/start.wav" type="audio/mpeg" />
+        <source src={StartSound} type="audio/mpeg" />
       </audio>
       <audio ref={loseRef}>
-        <source src="/sounds/lose.wav" type="audio/mpeg" />
+        <source src={LoseSound} type="audio/mpeg" />
       </audio>
       <audio ref={winRef}>
-        <source src="/sounds/win.wav" type="audio/mpeg" />
+        <source src={WinSound} type="audio/mpeg" />
       </audio>
     </>
   ) : (
@@ -191,7 +199,7 @@ export default App;
 function VideoBackground() {
   return (
     <video className="video-background" autoPlay loop muted>
-      <source src="/videos/video-background.mp4" type="video/mp4" />
+      <source src={BackgroundVideo} type="video/mp4" />
     </video>
   );
 }

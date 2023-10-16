@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Tilt from "react-parallax-tilt";
-import cardBackground from "/images/card-background.png";
+import CardBackground from "/images/card-background.png";
 import Logo from "/images/logo.png";
 
 import "../styles/Card.css";
@@ -25,7 +25,7 @@ function CardFront({ character }) {
       <div
         className="card-background"
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%), url(${cardBackground})`,
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.30) 100%), url(${CardBackground})`,
         }}
       />
       <div
@@ -46,7 +46,7 @@ function CardBack() {
       <div
         className="card-background"
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.50) 100%), url(${cardBackground})`,
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.50) 100%), url(${CardBackground})`,
         }}
       />
       <img src={Logo} alt="" />
