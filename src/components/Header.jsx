@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import Logo from "/images/logo.png";
-import ScoreIcon from "/images/score-icon.png";
-import BestscoreIcon from "/images/bestscore-icon.png";
+import Logo from "/images/logo.webp";
+import ScoreIcon from "/images/score-icon.webp";
+import BestscoreIcon from "/images/bestscore-icon.webp";
 
 import "../styles/Header.css";
 

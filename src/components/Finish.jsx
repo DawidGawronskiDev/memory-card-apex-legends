@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import WinImage from "/images/win-image.png";
-import LoseImage from "/images/lose-image.png";
+import WinImage from "/images/win-image.webp";
+import LoseImage from "/images/lose-image.webp";
 
 import "../styles/Finish.css";
 

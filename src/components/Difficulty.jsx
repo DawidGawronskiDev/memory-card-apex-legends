@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import CardBackground from "/images/card-background.png";
+import CardBackground from "/images/card-background.webp";
 
-import EasyImage from "/images/easy-image.png";
-import MediumImage from "/images/medium-image.png";
-import HardImage from "/images/hard-image.png";
+import EasyImage from "/images/easy-image.webp";
+import MediumImage from "/images/medium-image.webp";
+import HardImage from "/images/hard-image.webp";
 
 import "../styles/Difficulty.css";
 
