@@ -4,6 +4,7 @@ import Loading from "./components/Loading";
 import Difficulity from "./components/Difficulty";
 import Header from "./components/Header";
 import CardList from "./components/CardList";
+import Finish from "./components/Finish";
 
 import "./styles/App.css";
 import "./styles/VideoBackground.css";
@@ -17,6 +18,7 @@ function App() {
   const [difficulty, setDifficulty] = useState(0);
   const [score, setScore] = useState(0);
   const [bestscore, setBestscore] = useState(0);
+  const [finish, setFinish] = useState(null);
 
   const whoooshRef = useRef(null);
   const killRef = useRef(null);
@@ -50,8 +52,6 @@ function App() {
     score > bestscore && updateBestscore();
   }, [score, bestscore]);
 
-  console.log(score, bestscore);
-
   function getCharacters(data, length) {
     const charactersArr = [];
     let allCharacters = data;
@@ -72,6 +72,10 @@ function App() {
     playAudio(whoooshRef);
   }
 
+  function handleFinish(value) {
+    setFinish(value);
+  }
+
   function handleCardClick(character) {
     if (foundCharacters.indexOf(character) === -1 && !areFlipped) {
       setFoundCharacters([...foundCharacters, character]);
@@ -81,14 +85,21 @@ function App() {
       setScore(score + 1);
       playAudio(killRef);
 
-      // Use setTimeout to flip the card back after 500ms
       setTimeout(() => {
         flipCards(false);
         setClickedCard(null);
         setCharacters(getCharacters(characters, difficulty));
       }, 500);
-    } else {
+    }
+
+    // LOSE CASE
+    if (foundCharacters.indexOf(character) !== -1) {
       playAudio(loseRef);
+      handleFinish("lose");
+    }
+
+    if (foundCharacters.length === difficulty - 1) {
+      handleFinish("win");
     }
   }
 
@@ -114,7 +125,7 @@ function App() {
       ) : (
         <>
           <Header score={score} bestscore={bestscore} />
-          <ul className="card-list">
+          {!finish ? (
             <CardList
               characters={characters}
               handleCardClick={handleCardClick}
@@ -122,7 +133,9 @@ function App() {
               areFlipped={areFlipped}
               clickedCard={clickedCard}
             />
-          </ul>
+          ) : (
+            <Finish value={finish} />
+          )}
         </>
       )}
       <VideoBackground />
