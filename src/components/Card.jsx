@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Tilt from "react-parallax-tilt";
-import CardBackground from "/images/card-background.png";
-import Logo from "/images/logo.png";
+import CardBackground from "/images/card-background.webp";
+import Logo from "/images/logo.webp";
 
 import "../styles/Card.css";
 
