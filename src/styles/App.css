@@ -4,4 +4,6 @@
 
   display: grid;
   place-content: center;
+
+  overflow: hidden;
 }

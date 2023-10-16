@@ -2,6 +2,8 @@
 import WinImage from "/images/win-image.png";
 import LoseImage from "/images/lose-image.png";
 
+import "../styles/Finish.css";
+
 export default function Finish({ value }) {
   return (
     <div className="finish">

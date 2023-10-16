@@ -1,0 +1,43 @@
+@keyframes imagePop {
+  from {
+    transform: scale(10);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.finish {
+  max-width: 90vw;
+
+  display: grid;
+  gap: 16px;
+
+  margin: 0 auto;
+}
+
+.finish img {
+  width: 100%;
+
+  animation: imagePop ease-in-out 0.1s;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 32px;
+  text-transform: uppercase;
+
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+
+  padding: 16px 32px;
+}
