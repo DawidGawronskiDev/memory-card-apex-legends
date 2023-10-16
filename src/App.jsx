@@ -24,6 +24,7 @@ function App() {
   const killRef = useRef(null);
   const startRef = useRef(null);
   const loseRef = useRef(null);
+  const winRef = useRef(null);
 
   const playAudio = (ref) => {
     const audioFile = ref;
@@ -79,27 +80,31 @@ function App() {
   function handleCardClick(character) {
     if (foundCharacters.indexOf(character) === -1 && !areFlipped) {
       setFoundCharacters([...foundCharacters, character]);
-      flipCards(true);
+      if (foundCharacters.length !== difficulty - 1) {
+        flipCards(true); // Only play the whooosh sound if the game is not won yet
+
+        setTimeout(() => {
+          flipCards(false);
+          setClickedCard(null);
+          setCharacters(getCharacters(characters, difficulty));
+        }, 500);
+      }
       setClickedCard(character);
 
       setScore(score + 1);
       playAudio(killRef);
-
-      setTimeout(() => {
-        flipCards(false);
-        setClickedCard(null);
-        setCharacters(getCharacters(characters, difficulty));
-      }, 500);
     }
 
     // LOSE CASE
     if (foundCharacters.indexOf(character) !== -1) {
-      playAudio(loseRef);
       handleFinish("lose");
+      playAudio(loseRef);
     }
 
+    // WIN CASE
     if (foundCharacters.length === difficulty - 1) {
       handleFinish("win");
+      playAudio(winRef);
     }
   }
 
@@ -169,6 +174,9 @@ function App() {
       </audio>
       <audio ref={loseRef}>
         <source src="/sounds/lose.wav" type="audio/mpeg" />
+      </audio>
+      <audio ref={winRef}>
+        <source src="/sounds/win.wav" type="audio/mpeg" />
       </audio>
     </>
   ) : (
