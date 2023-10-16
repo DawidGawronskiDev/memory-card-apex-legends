@@ -14,7 +14,8 @@ function App() {
   const [areFlipped, setAreFlipped] = useState(true);
   const [clickedCard, setClickedCard] = useState(null);
   const [difficulty, setDifficulty] = useState(0);
-  const [score, setScore] = useState(1);
+  const [score, setScore] = useState(0);
+  const [bestscore, setBestscore] = useState(0);
 
   const whoooshRef = useRef(null);
   const killRef = useRef(null);
@@ -39,6 +40,16 @@ function App() {
 
     fetchData();
   }, [difficulty]);
+
+  useEffect(() => {
+    function updateBestscore() {
+      setBestscore(score);
+    }
+
+    score > bestscore && updateBestscore();
+  }, [score, bestscore]);
+
+  console.log(score, bestscore);
 
   function getCharacters(data, length) {
     const charactersArr = [];
@@ -100,15 +111,17 @@ function App() {
       {difficulty == 0 ? (
         <Difficulity changeDifficulty={changeDifficulty} />
       ) : (
-        <ul className="card-list">
-          <CardList
-            characters={characters}
-            handleCardClick={handleCardClick}
-            flipCards={flipCards}
-            areFlipped={areFlipped}
-            clickedCard={clickedCard}
-          />
-        </ul>
+        <>
+          <ul className="card-list">
+            <CardList
+              characters={characters}
+              handleCardClick={handleCardClick}
+              flipCards={flipCards}
+              areFlipped={areFlipped}
+              clickedCard={clickedCard}
+            />
+          </ul>
+        </>
       )}
       <VideoBackground />
       <audio ref={whoooshRef}>
