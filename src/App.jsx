@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 import Loading from "./components/Loading";
 import Difficulity from "./components/Difficulty";
+import Header from "./components/Header";
 import CardList from "./components/CardList";
 
 import "./styles/App.css";
@@ -112,6 +113,7 @@ function App() {
         <Difficulity changeDifficulty={changeDifficulty} />
       ) : (
         <>
+          <Header score={score} />
           <ul className="card-list">
             <CardList
               characters={characters}
