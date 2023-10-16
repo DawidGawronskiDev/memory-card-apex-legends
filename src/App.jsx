@@ -15,7 +15,7 @@ import WhoooshSound from "/sounds/whooosh.wav";
 import KillSound from "/sounds/kill.wav";
 import StartSound from "/sounds/start.wav";
 import LoseSound from "/sounds/lose.wav";
-import WinSound from "/sounds/Win.wav";
+import WinSound from "/sounds/win.wav";
 
 function App() {
   const [data, setData] = useState(null);
