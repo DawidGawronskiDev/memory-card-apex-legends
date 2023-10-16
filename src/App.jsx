@@ -90,31 +90,27 @@ function App() {
   function handleCardClick(character) {
     if (foundCharacters.indexOf(character) === -1 && !areFlipped) {
       setFoundCharacters([...foundCharacters, character]);
-      if (foundCharacters.length !== difficulty - 1) {
-        flipCards(true); // Only play the whooosh sound if the game is not won yet
-
+      setScore(score + 1);
+      playAudio(killRef);
+  
+      if (foundCharacters.length === difficulty - 1) {
+        // Handle the win condition first
+        handleFinish("win");
+        playAudio(winRef);
+      } else {
+        flipCards(true);
         setTimeout(() => {
           flipCards(false);
           setClickedCard(null);
           setCharacters(getCharacters(characters, difficulty));
         }, 500);
       }
+  
       setClickedCard(character);
-
-      setScore(score + 1);
-      playAudio(killRef);
-    }
-
-    // LOSE CASE
-    if (foundCharacters.indexOf(character) !== -1) {
+    } else {
+      // LOSE CASE
       handleFinish("lose");
       playAudio(loseRef);
-    }
-
-    // WIN CASE
-    if (foundCharacters.length === difficulty - 1) {
-      handleFinish("win");
-      playAudio(winRef);
     }
   }
 
