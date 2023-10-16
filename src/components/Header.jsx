@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
 import Logo from "/images/logo.png";
 import ScoreIcon from "/images/score-icon.png";
 import BestscoreIcon from "/images/bestscore-icon.png";
+
+import "../styles/Header.css";
 
 export default function Header({ score, bestscore }) {
   return (

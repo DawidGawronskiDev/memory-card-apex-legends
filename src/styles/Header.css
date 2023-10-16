@@ -1,0 +1,27 @@
+.header {
+  width: 90vw;
+  max-width: 1440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  margin: 0 auto;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 32px;
+
+  font-size: 32px;
+  color: #fff;
+}
+
+.scoreboard > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

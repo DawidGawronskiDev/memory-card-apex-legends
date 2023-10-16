@@ -113,7 +113,7 @@ function App() {
         <Difficulity changeDifficulty={changeDifficulty} />
       ) : (
         <>
-          <Header score={score} />
+          <Header score={score} bestscore={bestscore} />
           <ul className="card-list">
             <CardList
               characters={characters}
