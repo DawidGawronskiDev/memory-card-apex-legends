@@ -103,6 +103,21 @@ function App() {
     }
   }
 
+  function newGame() {
+    setCharacters(getCharacters(data.characters, difficulty));
+    setFoundCharacters([]);
+    setAreFlipped(true);
+    setClickedCard(null);
+    setScore(0);
+    setFinish(null);
+    playAudio(startRef);
+  }
+
+  function showDifficulty() {
+    setDifficulty(0);
+    newGame();
+  }
+
   function changeDifficulty(difficulty) {
     switch (difficulty) {
       case "easy":
@@ -134,7 +149,11 @@ function App() {
               clickedCard={clickedCard}
             />
           ) : (
-            <Finish value={finish} />
+            <Finish
+              value={finish}
+              newGame={newGame}
+              showDifficulty={showDifficulty}
+            />
           )}
         </>
       )}

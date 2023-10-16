@@ -4,13 +4,13 @@ import LoseImage from "/images/lose-image.png";
 
 import "../styles/Finish.css";
 
-export default function Finish({ value }) {
+export default function Finish({ value, newGame, showDifficulty }) {
   return (
     <div className="finish">
       <img src={value === "win" ? WinImage : LoseImage} alt="" />
       <div className="buttons-container">
-        <button>New game</button>
-        <button>Change difficulty</button>
+        <button onClick={newGame}>New game</button>
+        <button onClick={showDifficulty}>Change difficulty</button>
       </div>
     </div>
   );
