@@ -2,99 +2,99 @@
   "characters": [
     {
       "name": "Wraith",
-      "image": "characters/Wraith/image.wav"
+      "image": "characters/Wraith/image.webp"
     },
     {
       "name": "Bloodhound",
-      "image": "characters/Bloodhound/image.wav"
+      "image": "characters/Bloodhound/image.webp"
     },
     {
       "name": "Gibraltar",
-      "image": "characters/Gibraltar/image.wav"
+      "image": "characters/Gibraltar/image.webp"
     },
     {
       "name": "Lifeline",
-      "image": "characters/Lifeline/image.wav"
+      "image": "characters/Lifeline/image.webp"
     },
     {
       "name": "Pathfinder",
-      "image": "characters/Pathfinder/image.wav"
+      "image": "characters/Pathfinder/image.webp"
     },
     {
       "name": "Bangalore",
-      "image": "characters/Bangalore/image.wav"
+      "image": "characters/Bangalore/image.webp"
     },
     {
       "name": "Caustic",
-      "image": "characters/Caustic/image.wav"
+      "image": "characters/Caustic/image.webp"
     },
     {
       "name": "Mirage",
-      "image": "characters/Mirage/image.wav"
+      "image": "characters/Mirage/image.webp"
     },
     {
       "name": "Octane",
-      "image": "characters/Octane/image.wav"
+      "image": "characters/Octane/image.webp"
     },
     {
       "name": "Wattson",
-      "image": "characters/Wattson/image.wav"
+      "image": "characters/Wattson/image.webp"
     },
     {
       "name": "Crypto",
-      "image": "characters/Crypto/image.wav"
+      "image": "characters/Crypto/image.webp"
     },
     {
       "name": "Revenant",
-      "image": "characters/Revenant/image.wav"
+      "image": "characters/Revenant/image.webp"
     },
     {
       "name": "Loba",
-      "image": "characters/Loba/image.wav"
+      "image": "characters/Loba/image.webp"
     },
     {
       "name": "Rampart",
-      "image": "characters/Rampart/image.wav"
+      "image": "characters/Rampart/image.webp"
     },
     {
       "name": "Horizon",
-      "image": "characters/Horizon/image.wav"
+      "image": "characters/Horizon/image.webp"
     },
     {
       "name": "Fuse",
-      "image": "characters/Fuse/image.wav"
+      "image": "characters/Fuse/image.webp"
     },
     {
       "name": "Valkyrie",
-      "image": "characters/Valkyrie/image.wav"
+      "image": "characters/Valkyrie/image.webp"
     },
     {
       "name": "Seer",
-      "image": "characters/Seer/image.wav"
+      "image": "characters/Seer/image.webp"
     },
     {
       "name": "Ash",
-      "image": "characters/Ash/image.wav"
+      "image": "characters/Ash/image.webp"
     },
     {
       "name": "Ballistic",
-      "image": "characters/Ballistic/image.wav"
+      "image": "characters/Ballistic/image.webp"
     },
     {
       "name": "Catalyst",
-      "image": "characters/Catalyst/image.wav"
+      "image": "characters/Catalyst/image.webp"
     },
     {
       "name": "Newcastle",
-      "image": "characters/Newcastle/image.wav"
+      "image": "characters/Newcastle/image.webp"
     },
     {
       "name": "Maggie",
-      "image": "characters/Maggie/image.wav"
+      "image": "characters/Maggie/image.webp"
     },
     {
       "name": "Vantage",
-      "image": "characters/Vantage/image.wav"
+      "image": "characters/Vantage/image.webp"
     }
   ]
 }
