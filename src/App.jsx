@@ -34,7 +34,9 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await fetch("/data.json").then((resp) => resp.json());
+        const data = await fetch(
+          "https://dawidgawronskidev.github.io/memory-card-apex-legends/data.json"
+        ).then((resp) => resp.json());
         setCharacters(getCharacters(data.characters, difficulty));
         setData(data);
       } catch (err) {
